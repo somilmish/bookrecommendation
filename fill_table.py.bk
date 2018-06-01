@@ -1,0 +1,50 @@
+'''import json
+f = open('4.txt')
+j = json.load(open('sample.json'))
+a = []
+b = []
+for line in f:
+	line = line.rstrip() 
+	if line in j:
+		a.append(line)
+	else:
+		b.append(line)'''
+
+from home.models import Books,Genres
+import pandas as pd
+#x = pd.read_csv('result.csv')
+#y = x.iloc[:,2]
+books = pd.read_csv('bookedit.csv')
+books_c = books.dropna(subset=['original_title','isbn','isbn13','original_publication_year','language_code'])
+b = books_c.iloc[:,[1,7,9,12,21]]
+nan_rows = b[b['original_title'].isnull()].iloc[:,0]
+
+'''nan_rows.isin([227443]).any()
+if (nan_rows == 13020).any():
+    print("exist")
+else:
+    print("not exist")'''
+import json
+j = json.load(open('sample.json'))
+
+for q in range(10):
+		print(q)
+		for key in j:
+	#print("key->"+key)
+			for item in range(len(j[key])):
+				book_id = int(j[key][item])
+				if(nan_rows == book_id).any():
+					continue
+				
+				else:
+					book_name = b[b['goodreads_book_id'] == book_id]['original_title'].values[0]
+					author_name = b[b['goodreads_book_id'] == book_id]['authors'].values[0]
+					average_rating =  b[b['goodreads_book_id'] == book_id]['average_rating'].values[0]
+					image_url = b[b['goodreads_book_id'] == book_id]['image_url'].values[0]
+					sumr = "this is summary"
+					Books.objects.create(genre=Genres.objects.get(genre=key),
+	                                        name=book_name,
+	                                        summary=sumr,
+	    				                      author=author_name,
+	                                        rating=average_rating,
+	                    				    image=image_url)

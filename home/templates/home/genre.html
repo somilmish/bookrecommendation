@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    {% load staticfiles %}
+    <!-- Google font -->
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'home/css/bootstrap.min.css'%}"/>
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet"  href="{% static 'home/css/owl.carousel.css'%}" />
+
+	<link type="text/css" rel="stylesheet" href="{% static 'home/css/owl.theme.default.css'%}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{%static 'home/css/font-awesome.min.css' %}">
+
+	<!-- Custom stlylesheet -->
+    <style>
+        .gallerysuar{
+            display: inline-block;
+            height: 160px;
+            width: 105px;
+            padding:8px;
+        }
+        .navbar .navbar-brand {
+             padding-top: 0px;
+        }
+        .navbar .navbar-brand img {
+            height: 60px;
+            padding-left: 30px;
+        }
+        .navbar .navbar-brand {
+  padding-top: 0px;
+  max-width:100%;
+}
+.navbar .navbar-brand img {
+  height: 60px;
+  padding-left: 30px;
+}
+#footer {
+  background-color: #f4f4f8;
+  margin-top:20px;
+}
+
+.footer {
+  margin-bottom: 30px;
+}
+
+.footer .footer-title {
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+/*----------------------------*\
+    logo
+\*----------------------------*/
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+
+.footer-logo .logo {
+  display: inline-block;
+}
+
+.footer-logo .logo img {
+  max-height: 80px;
+}
+
+/*----------------------------*\
+    contact
+\*----------------------------*/
+
+.footer-contact {
+  margin-top: 30px;
+}
+
+.footer-contact li {
+  margin-bottom: 10px;
+}
+
+.footer-contact li i {
+  margin-right: 5px;
+}
+
+/*----------------------------*\
+    galery
+\*----------------------------*/
+
+.footer-galery {
+  margin: 0px -5px;
+}
+
+.footer-galery li {
+  display: inline-block;
+  width: 33.33%;
+  margin-right: -4px;
+  padding: 5px;
+}
+
+.footer-galery li a {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.footer-galery li a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #83ba09;
+  opacity: 0;
+  -webkit-transition: 0.3s opacity;
+  transition: 0.3s opacity;
+}
+
+.footer-galery li a:hover:after {
+  opacity: 0.6;
+}
+
+.footer-galery li a>img {
+  width: 100%;
+}
+
+/*----------------------------*\
+    newsletter
+\*----------------------------*/
+
+.footer-newsletter {
+  margin: 30px 0px;
+}
+
+.footer-newsletter .primary-button {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+
+/*----------------------------*\
+    social
+\*----------------------------*/
+
+.footer-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social li a {
+  display: block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  color: #5f646b;
+  text-align: center;
+  background-color: #FFF;
+  border: 1px solid #e6e6ea;
+  -webkit-transition: 0.3s border-color;
+  transition: 0.3s border-color;
+}
+
+.footer-social li a:hover, .footer-social li a:focus {
+  border-color: #83ba09;
+}
+
+/*----------------------------*\
+    copyright & footer nav
+\*----------------------------*/
+
+#footer-bottom {
+  border-top: 1px solid #e6e6ea;
+  padding-top: 30px;
+}
+
+#footer-bottom .footer-nav {
+  text-align: right;
+}
+
+#footer-bottom .footer-nav li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#footer-bottom .footer-nav li a {
+  color: #5f646b;
+}
+
+#footer-bottom .footer-nav li a:hover, #footer-bottom .footer-nav li a:focus {
+  color: #83ba09;
+}
+@media only screen and (max-width: 991px) {
+     #footer-bottom .footer-nav {
+    text-align: left;
+  }
+  .footer-copyright {
+    margin-top: 30px;
+  }
+    </style>
+    <title>Genre</title>
+</head>
+<body>
+<nav class="navbar navbar-default">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="navbar-header">
+
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+
+                <span class="sr-only">Toggle navigation</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+            </button>
+            <a class="logo navbar-brand" href="{% url 'home' %}"><img src="{% static 'home/img/logo.png' %}" alt="logo"></a>
+
+        </div>
+
+        <!-- Collection of nav links and other content for toggling -->
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+{% for i in books %}
+    <li class = "gallerysuar"><a href="{% url 'book' %}?id={{ i.id }}"><div class="w3-card-4" style="display:inline-block;"><img src="{{i.image}}" title="{{i.name}}" alt="{{i.name}}" width="103px" height="156px" border="1">
+    </div></a></li>
+{% endfor %}
+
+
+<!-- FOOTER -->
+	<footer id="footer" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- footer contact -->
+				<div class="col-md-12">
+					<div class="footer">
+						<center><p>This is a project made for CSE Mini project lab, KNIT Sultanpur, in the session 2017-2018</p>
+						<ul class="footer-contact list-unstyled">Contact Us:
+							<li>Siddharth Singh(15239), Somil Mishra(15241), Siddhant Sharma(15238)</li><li><i class="fa fa-phone"></i>09120050154, 9794155438, 08171573780</li>
+							<li><i class="fa fa-envelope"></i>siddharthsingh@gmail.com,somilmish@gmail.com, sid@xyz.com</li>
+						</ul>
+							<div class="footer-logo">
+							<a class="logo" href="{% url 'home' %}"><img src="{% static 'home/img/logo.png' %}"  alt="logo"></a>
+						</div>
+						</center>
+					</div>
+				</div>
+			</div>
+	</footer>
+	<!-- /FOOTER -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+</body>
+</html>

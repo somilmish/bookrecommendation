@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User</title>
+    {% load staticfiles %}
+	<!-- Google font -->
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static 'home/css/bootstrap.min.css'%}"/>
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet"  href="{% static 'home/css/owl.carousel.css'%}" />
+
+	<link type="text/css" rel="stylesheet" href="{% static 'home/css/owl.theme.default.css'%}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{%static 'home/css/font-awesome.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    .scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+        height:180px;
+    white-space:nowrap;
+}
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+    .navbar .navbar-brand {
+  padding-top: 0px;
+  max-width:100%;
+}
+.navbar .navbar-brand img {
+  height: 60px;
+  padding-left: 30px;
+}
+#footer {
+  background-color: #f4f4f8;
+  height: 300px;
+}
+
+.footer {
+
+}
+
+.footer .footer-title {
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+/*----------------------------*\
+	logo
+\*----------------------------*/
+
+.footer-logo {
+  margin-bottom: 0px;
+}
+
+.footer-logo .logo {
+  display: inline-block;
+}
+
+.footer-logo .logo img {
+  max-height: 80px;
+}
+
+/*----------------------------*\
+	contact
+\*----------------------------*/
+
+.footer-contact {
+  margin-top: 0px;
+}
+
+.footer-contact li {
+  margin-bottom: 10px;
+}
+
+.footer-contact li i {
+  margin-right: 5px;
+}
+
+/*----------------------------*\
+	galery
+\*----------------------------*/
+
+.footer-galery {
+  margin: 0px -5px;
+}
+
+.footer-galery li {
+  display: inline-block;
+  width: 33.33%;
+  margin-right: -4px;
+  padding: 5px;
+}
+
+.footer-galery li a {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.footer-galery li a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #83ba09;
+  opacity: 0;
+  -webkit-transition: 0.3s opacity;
+  transition: 0.3s opacity;
+}
+
+.footer-galery li a:hover:after {
+  opacity: 0.6;
+}
+
+.footer-galery li a>img {
+  width: 100%;
+}
+
+/*----------------------------*\
+	newsletter
+\*----------------------------*/
+
+.footer-newsletter {
+  margin: 30px 0px;
+}
+
+.footer-newsletter .primary-button {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+
+/*----------------------------*\
+	social
+\*----------------------------*/
+
+.footer-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social li a {
+  display: block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  color: #5f646b;
+  text-align: center;
+  background-color: #FFF;
+  border: 1px solid #e6e6ea;
+  -webkit-transition: 0.3s border-color;
+  transition: 0.3s border-color;
+}
+
+.footer-social li a:hover, .footer-social li a:focus {
+  border-color: #83ba09;
+}
+
+/*----------------------------*\
+	copyright & footer nav
+\*----------------------------*/
+
+#footer-bottom {
+  border-top: 1px solid #e6e6ea;
+  padding-top: 30px;
+}
+
+#footer-bottom .footer-nav {
+  text-align: right;
+}
+
+#footer-bottom .footer-nav li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#footer-bottom .footer-nav li a {
+  color: #5f646b;
+}
+
+#footer-bottom .footer-nav li a:hover, #footer-bottom .footer-nav li a:focus {
+  color: #83ba09;
+}
+@media only screen and (max-width: 991px) {
+     #footer-bottom .footer-nav {
+    text-align: left;
+  }
+  .footer-copyright {
+    margin-top: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="navbar-header">
+
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+
+                <span class="sr-only">Toggle navigation</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+            </button>
+            <a class="logo navbar-brand" href="{% url 'home' %}"><img src="{% static 'home/img/logo.png' %}" alt="logo"></a>
+
+        </div>
+
+        <!-- Collection of nav links and other content for toggling -->
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+<div id="content" class="modal-body row" style="height:600px;">
+    <div class="col-md-4">
+    <!-- Your first column here -->
+
+        <h3 style="padding-left:110px;" >Genres</h3>
+        <div  style="overflow-y: scroll; height:470px;width:300px;padding-top:20px;text-align:center;background-color: #E0E0E0">
+        {% for i in genre %}
+        <a href="{% url 'genre' %}/?id={{ i.id }}">{{ i.genre }}</a><br>
+        {% endfor %}
+        </div>
+
+  </div>
+  <div class="col-md-8">
+    <!-- Your second column here -->
+    <div class="row" style=""><h1>{{ user.username}}'s library</h1></div>
+    <div class="row">
+        <h3 style="text-align:center;"><b>Followed Books</b></h3>
+    <div class="scrolls">
+      {% for i in fbook %}
+        <div class="w3-card" style="width:104px; display:inline-block;">
+        <a href="{% url 'book' %}?id={{ i.book.id }}"><img src="{{i.book.image}}" style="width:100%; height:156px;" title="{{i.book.name}}"/>
+        </a> </div>
+      {% endfor %}
+</div>
+  </div>
+      {% if isset%}
+          <div class="row">
+        <h3 style="text-align:center;"><b>Recommended Books</b></h3>
+    <div class="scrolls">
+      {% for i in recbook %}
+        <div class="w3-card" style="width:104px; display:inline-block;"><a href="{% url 'book' %}?id={{ i.id }}">
+            <img src="{{i.image}}" style="width:100%; height:156px;" title="{{i.name}}"/></a>
+        </div>
+      {% endfor %}
+</div>
+  </div>
+            {% else %}
+      <br>
+      <b>Please select more books for better recommendations</b>
+      {% endif %}
+</div>
+</div>
+
+
+<!-- FOOTER -->
+	<footer id="footer" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- footer contact -->
+				<div class="col-md-12">
+					<div class="footer">
+						<center><p>This is a project made for CSE Mini project lab, KNIT Sultanpur, in the session 2017-2018</p>
+						<ul class="footer-contact list-unstyled">Contact Us:
+							<li>Siddharth Singh(15239), Somil Mishra(15241), Siddhant Sharma(15238)</li><li><i class="fa fa-phone"></i>09120050154, 9794155438, 08171573780</li>
+							<li><i class="fa fa-envelope"></i>siddharthsingh@gmail.com,somilmish@gmail.com, sid@xyz.com</li>
+						</ul>
+							<div class="footer-logo">
+							<a class="logo" href="{% url 'home' %}"><img src="{% static 'home/img/logo.png' %}"  alt="logo"></a>
+						</div>
+						</center>
+					</div>
+				</div>
+			</div>
+	</footer>
+	<!-- /FOOTER -->
+<script src="{% static 'home/js/jquery.min.js' %}"></script>
+	<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'home/js/main.js' %}"></script>
+</body>
+</html>
